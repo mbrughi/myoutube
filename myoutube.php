@@ -38,6 +38,15 @@ class mYoutube extends Module {
             return false;
         return true;
     }
+    
+    public function hookDisplayHome($params)
+    {
+        // < assign variables to template >
+        $this->context->smarty->assign(
+            array('youtube_url' => Configuration::get('youtube_video_url'))
+        );
+        return $this->display(__FILE__, 'youtube_video.tpl');
+    }      
 
 }	
 
