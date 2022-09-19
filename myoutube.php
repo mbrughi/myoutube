@@ -23,6 +23,22 @@ class mYoutube extends Module {
         $this->confirmUninstall = $this->l('Are you sure you want to uninstall?', 'myoutube');
     }
 
+    public function install()
+    {
+        if (Shop::isFeatureActive())
+            Shop::setContext(Shop::CONTEXT_ALL);
+
+        return parent::install() &&
+            $this->registerHook('displayHome') && Configuration::updateValue('youtube_video_url', 'wlsdMpnDBn8');
+    }
+
+    public function uninstall()
+    {
+        if (!parent::uninstall() || !Configuration::deleteByName('youtube_video_url'))
+            return false;
+        return true;
+    }
+
 }	
 
 
