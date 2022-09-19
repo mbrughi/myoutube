@@ -29,7 +29,7 @@ class mYoutube extends Module {
             Shop::setContext(Shop::CONTEXT_ALL);
 
         return parent::install() &&
-            $this->registerHook('displayHome') && Configuration::updateValue('youtube_video_url', 'wlsdMpnDBn8');
+            $this->registerHook('displayHome') && Configuration::updateValue('youtube_video_url', 'tFbVZCbLhOk');
     }
 
     public function uninstall()
